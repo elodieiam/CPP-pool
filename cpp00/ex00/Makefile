@@ -1,11 +1,10 @@
 NAME 		= megaphone
 
 CPP			= c++
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -MMD
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 SRC 		= megaphone.cpp
 OBJ		 	= $(SRC:.cpp=.o)
-DEP			= $(SRC:.cpp=.d)
 
 
 all : $(NAME)
