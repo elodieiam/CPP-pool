@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:44:58 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/27 17:29:05 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:33:17 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@
 class Contact
 {
 	public:
+	Contact();
 	void	New_contact(int index);
+	void	display_contact(void);
+	void	display_specific(void);
+	void	trunc_display(std::string str);
 	void	setIndex(int index);
 	void	setFirstName(void);
 	void	setLastName(void);
