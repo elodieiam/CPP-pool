@@ -9,7 +9,7 @@ SRC 	= main.cpp Contact.cpp PhoneBook.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 
-all : $(NAME)
+all : $(NAME) Contact.hpp PhoneBook.hpp
 
 $(NAME) : $(OBJ)
 	@echo "Compiling..." $(NAME)
@@ -20,7 +20,7 @@ $(NAME) : $(OBJ)
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean : 
-	@rm -rf $(OBJ) $(DEP)
+	@rm -rf $(OBJ)
 
 fclean : clean
 	@rm -rf $(NAME)
