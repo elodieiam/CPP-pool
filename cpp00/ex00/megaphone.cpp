@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:26:10 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/24 18:03:51 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:39:33 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	std::string	str("");
 	
 	if (ac == 1)
-		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n", 0);
+		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl, 0);
 	for (int i = 1; av[i]; i++)
 	{
 		str = av[i];
@@ -28,5 +28,5 @@ int	main(int ac, char **av)
 		if (av[i])
 			std::cout << " ";
 	}
-	return (std::cout << "\n", 0);
+	return (std::cout << std::endl, 0);
 }

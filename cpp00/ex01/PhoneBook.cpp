@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:47:55 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/28 18:41:41 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:40:42 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	PhoneBook::display_contact(int	index, int nb_contacts)
 	this->Repertoire[index].display_contact();
 	while (str.empty() || check_searched(str))
 	{
-		std::cout << "Enter the index of the contact to be displayed (0 to 7): \n>";
+		std::cout << "Enter the index of the contact to be displayed (0 to 7): " << std::endl << ">";
 		if (!getline(std::cin, str))
 			return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:00:16 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/28 17:24:14 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:38:55 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	main(void)
 	std::string	cmd_line("");
 	int			i, nb_contacts = 0;
 
-	std::cout << "PhoneBook : ADD to create a new contact\n"; //endl ?
-	std::cout << "          : SEARCH to find a contact\n          : EXIT to exit PhoneBook\n";
+	std::cout << "PhoneBook : ADD to create a new contact" << std::endl; //endl ?
+	std::cout << "          : SEARCH to find a contact" << std::endl;
+	std::cout << "          : EXIT to exit PhoneBook" << std::endl;
 	while (1)
 	{
 		std::cout << ">";

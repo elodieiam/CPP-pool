@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:15:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/02/28 18:41:08 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:40:19 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	Contact::setFirstName(void)
 	
 	while (str.empty())
 	{
-		std::cout << "Please enter the contact's first name :\n";
+		std::cout << "Please enter the contact's first name :" << std::endl;
 		if (!std::getline(std::cin, str))
 			std::exit(1);
 	}
@@ -42,7 +42,7 @@ void	Contact::setLastName(void)
 	
 	while (str.empty())
 	{
-		std::cout << "Please enter the contact's last name :\n";
+		std::cout << "Please enter the contact's last name :" << std::endl;
 		if (!std::getline(std::cin, str))
 			std::exit(1);
 	}
@@ -55,7 +55,7 @@ void	Contact::setNickname(void)
 	
 	while (str.empty())
 	{
-		std::cout << "Please enter the contact's nickname :\n";
+		std::cout << "Please enter the contact's nickname :" << std::endl;
 		if (!std::getline(std::cin, str))
 			std::exit(1);
 	}
@@ -68,7 +68,7 @@ void	Contact::setPhoneNumber(void)
 	
 	while (str.empty())
 	{
-		std::cout << "Please enter the contact's phone number :\n";
+		std::cout << "Please enter the contact's phone number :" << std::endl;
 		if (!std::getline(std::cin, str))
 			std::exit(1);
 	}
@@ -81,7 +81,7 @@ void	Contact::setDarkestSecret(void)
 	
 	while (str.empty())
 	{
-		std::cout << "Please enter the contact's darkest secret :\n";
+		std::cout << "Please enter the contact's darkest secret :" << std::endl;
 		if (!std::getline(std::cin, str))
 			std::exit(1);
 	}
