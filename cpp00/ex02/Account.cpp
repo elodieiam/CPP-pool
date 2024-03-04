@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:55:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/02 17:19:27 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:24:46 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,10 @@ Account::Account( int initial_deposit ) //le constructeur
 	
 Account::~Account( void ) //le destructeur
 	{
-		_nbAccounts--;
 		_displayTimestamp();
-		std::cout << "index:" << this->_accountIndex;
+		std::cout << " index:" << this->_accountIndex;
 		std::cout << ";amount:" << this->_amount;
-		std::cout << ";closed";
-		if (_nbAccounts != 0)
-			std::cout << std::endl;
+		std::cout << ";closed" << std::endl;
 	}
 
 void	Account::makeDeposit( int deposit )

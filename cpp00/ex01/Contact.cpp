@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:15:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 11:40:19 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:17:51 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <cstdlib>
 
 Contact::Contact() : index(0) {}
+
+Contact::~Contact() {};
 
 void	Contact::setIndex(int index)
 {

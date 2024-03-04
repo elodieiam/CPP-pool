@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:47:55 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 11:40:42 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:10:10 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 
 PhoneBook::PhoneBook() {};
+
+PhoneBook::~PhoneBook() {};
 
 /*this est un pointeur implicite sur l'objet sur lequel est appelé la méthode.
 On accède à un élément du tab appartenant à l'objet courant sur lequel la méthode est appelée.
