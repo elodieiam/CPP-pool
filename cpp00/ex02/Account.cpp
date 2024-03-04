@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:55:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:24:46 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:48:47 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,27 +91,28 @@ void	Account::makeDeposit( int deposit )
 	std::cout << ";p_amount:" << this->_amount;
 	std::cout << ";deposit:" << deposit;
 	this->_amount += deposit;
-	std::cout << ";amount:" << this->_amount << this->_nbDeposits << std::endl;
+	std::cout << ";amount:" << this->_amount;
+	std::cout << ";nb_deposits:" << this->_nbDeposits << std::endl;
 	
 }
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
-	_totalNbWithdrawals++;
-	this->_nbWithdrawals++;
 	std::cout << " index:" << this->_accountIndex;
 	std::cout << ";p_amount:" << this->_amount;
-	if (withdrawal > this->_amount)
+	if (withdrawal <= this->_amount)
 	{
-		std::cout << ";withdrawal refused" << std::endl;
-		return (false);
+		_totalNbWithdrawals++;
+		this->_nbWithdrawals++;
+		_totalAmount -= withdrawal;
+		std::cout << ";withdrawal:" << withdrawal;
+		this->_amount -= withdrawal;
+		std::cout << ";amount:" << checkAmount();
+		std::cout << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+		return (true);
 	}
-	_totalAmount -= withdrawal;
-	std::cout << ";withdrawal:" << withdrawal;
-	this->_amount -= withdrawal;
-	std::cout << ";amount:" << checkAmount();
-	std::cout << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
-	return (true);
+	std::cout << ";withdrawal:refused" << std::endl;
+	return (false);
 }
 
 int		Account::checkAmount( void ) const { return (this->_amount);}
