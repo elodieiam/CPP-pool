@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:55:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:48:47 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:02:14 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp( void )
 {
-	time_t	now = time(0); //on obtient le nb de secondes écoulées depuis le 01/01/1970
+	time_t	now = time(0);
 
-	tm	*info = localtime(&now); //on décompose le résultat obtenu en années, mois, jours...
+	tm	*info = localtime(&now);
 	std::cout << "[" << info->tm_year + 1900;
 	if (info->tm_mon < 10)
 		std::cout << "0";
@@ -60,7 +60,7 @@ void	Account::displayAccountsInfos( void )
 	std::cout << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-Account::Account( int initial_deposit ) //le constructeur
+Account::Account( int initial_deposit )
 	{
 		_nbAccounts++;
 		_totalAmount += initial_deposit;
@@ -73,7 +73,7 @@ Account::Account( int initial_deposit ) //le constructeur
 		std::cout <<";amount:" << initial_deposit << ";created" <<std::endl; 
 	}
 	
-Account::~Account( void ) //le destructeur
+Account::~Account( void )
 	{
 		_displayTimestamp();
 		std::cout << " index:" << this->_accountIndex;

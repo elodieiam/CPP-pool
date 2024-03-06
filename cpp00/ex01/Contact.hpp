@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:44:58 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 18:46:15 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:16:14 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Contact
 	void	setNickname(void);
 	void	setPhoneNumber(void);
 	void	setDarkestSecret(void);
+	int		check_format(std::string str);
 	
 	private:
 	int			index;

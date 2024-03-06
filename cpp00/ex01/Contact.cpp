@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:15:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:17:51 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:23:13 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,24 @@ void	Contact::setNickname(void)
 	this->nickname = str;
 }
 
+int	Contact::check_format(std::string str)
+{
+	for (std::size_t i = 0; i < str.length() ; ++i)
+		{
+			char c = str[i];
+			if (!std::isdigit(c))
+				return (1);
+		}
+	if (str.length() > 10)
+		return (1);
+	return (0);
+}
+
 void	Contact::setPhoneNumber(void)
 {
 	std::string	str("");
 	
-	while (str.empty())
+	while (str.empty() || check_format(str))
 	{
 		std::cout << "Please enter the contact's phone number :" << std::endl;
 		if (!std::getline(std::cin, str))

@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:47:55 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:10:10 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:01:59 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,9 @@ PhoneBook::PhoneBook() {};
 
 PhoneBook::~PhoneBook() {};
 
-/*this est un pointeur implicite sur l'objet sur lequel est appelé la méthode.
-On accède à un élément du tab appartenant à l'objet courant sur lequel la méthode est appelée.
- */
-/* Phonebook:: indique que la fonction qui suit fait partie de la classe PhoneBook.
-"::" sert à définir les méthodes hors de la définition de la classe
-*/
 void	PhoneBook::add_contact(int index)
 {
-	this->Repertoire[index].New_contact(index); //on accède à la méthode de l'objet contact
-	//qui est dans l'objet PhoneBook.
-	//on va dans répertoire qui contient 8 objets de type contact
+	this->Repertoire[index].New_contact(index);
 }
 
 int	check_searched(std::string str)
