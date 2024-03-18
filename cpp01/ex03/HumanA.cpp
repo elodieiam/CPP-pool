@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:25:50 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/08 16:58:47 by elrichar         ###   ########.fr       */
+/*   Created: 2024/03/17 17:42:28 by elrichar          #+#    #+#             */
+/*   Updated: 2024/03/17 19:01:12 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-Zombie* zombieHorde( int N, std::string name )
+
+HumanA::HumanA(std::string name, Weapon& weaponA) : _name(name), _weaponA(weaponA) {}
+
+HumanA::~HumanA(void) {}
+
+void	HumanA::attack(void) const
 {
-	if (N <= 0 || N > 2147483647)
-	{
-		std::cout << "invalid integer" << std::endl;
-		return (NULL);
-	}
-	Zombie	*horde = new Zombie[N];
-	if (!horde)
-		return (NULL);
-	for (int i = 0; i < N; i++)
-		horde[i].set_name(name);
-	return (horde);
+	std::cout << _name << " attacks with their " << _weaponA.getType() << std::endl;
 }

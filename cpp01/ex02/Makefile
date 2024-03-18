@@ -1,11 +1,14 @@
-NAME 		= megaphone
+NAME 	= Brain
 
-CPP			= c++
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -MMD
+CPP 	= c++
 
-SRC 		= megaphone.cpp
-OBJ		 	= $(SRC:.cpp=.o)
-DEP			= $(SRC:.cpp=.d)
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
+
+SRC 	= main.cpp
+
+OBJ		= $(SRC:.cpp=.o)
+
+DEP		= $(SRC:.cpp=.d)
 
 
 all : $(NAME)

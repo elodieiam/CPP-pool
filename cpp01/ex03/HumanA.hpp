@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:25:50 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/08 16:58:47 by elrichar         ###   ########.fr       */
+/*   Created: 2024/03/17 17:28:37 by elrichar          #+#    #+#             */
+/*   Updated: 2024/03/17 18:41:29 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include "Weapon.hpp"
+
+class HumanA
 {
-	if (N <= 0 || N > 2147483647)
-	{
-		std::cout << "invalid integer" << std::endl;
-		return (NULL);
-	}
-	Zombie	*horde = new Zombie[N];
-	if (!horde)
-		return (NULL);
-	for (int i = 0; i < N; i++)
-		horde[i].set_name(name);
-	return (horde);
-}
+	public:
+	HumanA(std::string name, Weapon& weaponA);
+	~HumanA(void);
+	void attack(void) const;
+
+	private:
+	std::string _name;
+	Weapon 		&_weaponA;
+};
+
+#endif

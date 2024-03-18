@@ -1,11 +1,14 @@
-NAME 		= megaphone
+NAME 	= Violence
 
-CPP			= c++
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -MMD
+CPP 	= c++
 
-SRC 		= megaphone.cpp
-OBJ		 	= $(SRC:.cpp=.o)
-DEP			= $(SRC:.cpp=.d)
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
+
+SRC 	= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+
+OBJ		= $(SRC:.cpp=.o)
+
+DEP		= $(SRC:.cpp=.d)
 
 
 all : $(NAME)

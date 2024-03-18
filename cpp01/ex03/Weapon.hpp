@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:25:50 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/08 16:58:47 by elrichar         ###   ########.fr       */
+/*   Created: 2024/03/17 17:15:37 by elrichar          #+#    #+#             */
+/*   Updated: 2024/03/17 18:50:57 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include <string>
+#include <iostream>
+
+class Weapon
 {
-	if (N <= 0 || N > 2147483647)
-	{
-		std::cout << "invalid integer" << std::endl;
-		return (NULL);
-	}
-	Zombie	*horde = new Zombie[N];
-	if (!horde)
-		return (NULL);
-	for (int i = 0; i < N; i++)
-		horde[i].set_name(name);
-	return (horde);
-}
+	public:
+	Weapon(std::string type);
+	~Weapon(void);
+	const std::string& getType(void);
+	void 			setType(std::string newType);		
+	
+	private:
+	std::string		_type;
+};
+
+#endif

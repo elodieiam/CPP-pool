@@ -18,4 +18,5 @@ int main()
 	std::cout << "> directly in the main function :" << std::endl;
 	Zombie	zombie2("oups");
 	zombie2.announce();
+	return (0);
 }

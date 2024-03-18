@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:25:50 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/08 16:58:47 by elrichar         ###   ########.fr       */
+/*   Created: 2024/03/17 18:33:20 by elrichar          #+#    #+#             */
+/*   Updated: 2024/03/18 11:11:59 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include "Weapon.hpp"
+
+class HumanB
 {
-	if (N <= 0 || N > 2147483647)
-	{
-		std::cout << "invalid integer" << std::endl;
-		return (NULL);
-	}
-	Zombie	*horde = new Zombie[N];
-	if (!horde)
-		return (NULL);
-	for (int i = 0; i < N; i++)
-		horde[i].set_name(name);
-	return (horde);
-}
+	public:
+		HumanB(std::string name);
+		~HumanB(void);
+		void attack(void) const;
+		void setWeapon(Weapon &weapon);
+		
+	private:
+		std::string _name;
+		Weapon	*_weaponB;
+};
+
+
+
+#endif
