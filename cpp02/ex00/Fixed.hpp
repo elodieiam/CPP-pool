@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:32:38 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/20 12:19:39 by elrichar         ###   ########.fr       */
+/*   Created: 2024/03/20 16:47:32 by elrichar          #+#    #+#             */
+/*   Updated: 2024/03/20 18:09:22 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-int main()
+#include <iostream>
+
+class Fixed
 {
-	int	N = 27;
-	
-	Zombie	*horde = zombieHorde(N, "JIkaaaaa");
-	if (!horde)
-		return (1);
-	for (int i = 0; i < N; i++)
-		horde[i].announce();
-	
-	delete[] horde;
-	return (0);
-}
+	public:
+	Fixed(void);
+	Fixed (const Fixed &other);
+	Fixed &operator = (const Fixed &other);
+	~Fixed(void);
+	int	getRawBits(void) const;
+	void setRawBits(int const raw);
+
+	private:
+	int	_fixedValue;
+	static const int _fractBits = 8;	
+};
+
+#endif
