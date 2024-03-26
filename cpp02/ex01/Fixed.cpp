@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:21:29 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/25 16:41:15 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/26 08:28:27 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,30 @@ Fixed::Fixed(void): _fixedValue(0)
 }
 Fixed::Fixed(const int fixed_point)
 {
+	long result = 0;
+	
 	std::cout << "Int constructor called" << std::endl;
 	const int scale_factor = 1 << _fractBits;
-	this->_fixedValue = roundf(fixed_point * scale_factor);
+	result = roundf(fixed_point * scale_factor);
+	if (result > 2147483647)
+		this->_fixedValue = 2147483647;
+	else if (result < -2147483648)
+		this->_fixedValue = -2147483648;
+	this->_fixedValue = result;
 }
 
 Fixed::Fixed(const float fixed_point)
 {
+	long result = 0;
+	
 	std::cout << "Float constructor called" << std::endl;
 	const int scale_factor = 1 << _fractBits;
-	this->_fixedValue = static_cast<int>(roundf(fixed_point * scale_factor));
+	result = static_cast<int>(roundf(fixed_point * scale_factor));
+	if (result > 2147483647)
+		this->_fixedValue = 2147483647;
+	else if (result < -2147483648)
+		this->_fixedValue = -2147483648;
+	this->_fixedValue = result;
 }
 
 Fixed::~Fixed(void)
