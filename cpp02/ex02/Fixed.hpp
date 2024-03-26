@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:25:58 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/25 18:45:31 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:22:44 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,22 @@ class Fixed
 	
 	
 
-	bool			operator<(const Fixed &a, const Fixed &b);
-	bool			operator>(const Fixed &a, const Fixed &b);
-	bool			operator>=(const Fixed &a, const Fixed &b);
-	bool			operator<=(const Fixed &a, const Fixed &b);
-	bool			operator==(const Fixed &a, const Fixed &b);
-	bool			operator!=(const Fixed &a, const Fixed &b);
+	bool			operator<(const Fixed &a) const;
+	bool			operator>(const Fixed &a) const;
+	bool			operator>=(const Fixed &a) const;
+	bool			operator<=(const Fixed &a) const;
+	bool			operator==(const Fixed &a) const;
+	bool			operator!=(const Fixed &a) const;
 
-	Fixed			operator+(const Fixed &a, const Fixed &b);
-	Fixed			operator-(const Fixed &a, const Fixed &b);
-	Fixed			operator*(const Fixed &a, const Fixed &b);
-	Fixed			operator/(const Fixed &a, const Fixed &b);
+	Fixed			operator+(const Fixed &a) const;
+	Fixed			operator-(const Fixed &a) const;
+	Fixed			operator*(const Fixed &a) const;
+	Fixed			operator/(const Fixed &a) const;
+
+	Fixed &operator++(void);
+	Fixed operator++(int);
+	Fixed &operator--(void);
+	Fixed operator--(int);
 
 	static Fixed& min(Fixed& fixed1, Fixed& fixed2);
 	static const Fixed& min(const Fixed& fixed1, const Fixed& fixed2);
