@@ -5,36 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 12:44:22 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/03 15:44:19 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/03 15:44:51 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/03 16:02:53 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main()
+int main(void)
 {
- ScavTrap Ma("hi");
- ScavTrap Cleo("Cleoo");
- ClapTrap Jo("liiiiiiiii");
+	FragTrap Hilo("Hilo");
+	FragTrap Gege(Hilo);
+	ClapTrap Juju("Juju");
+	ScavTrap Lo("Lo");
+	ScavTrap Mo;
+	Mo = Lo;
 
- Ma.attack(Jo.getName());
- Jo.takeDamage(Ma.getAttackDamage());
- Ma.beRepaired(1);
- Ma.guardGate();
- Ma.guardGate();
-
- 
- Cleo.attack(Ma.getName());
- Ma.takeDamage(Cleo.getAttackDamage());
- Cleo.guardGate();
- Cleo.beRepaired(5);
- Jo.attack(Ma.getName());
- Ma.takeDamage(Jo.getAttackDamage());
- Jo.attack(Cleo.getName());
- Cleo.takeDamage(Jo.getAttackDamage());
- 
-
-
+	Gege.highFivesGuys();
+	Gege.attack(Juju.getName());
+	Juju.takeDamage(Gege.getAttackDamage());
+	
+	Lo.guardGate();
+	Lo.guardGate();
+	
+	Lo.attack(Mo.getName());
+	Mo.takeDamage(Lo.getAttackDamage());
+	Lo.beRepaired(3);
+	Mo.beRepaired(2);
 }

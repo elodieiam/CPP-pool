@@ -4,7 +4,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 SRC_DIR = ./
 SRCS = $(addprefix $(SRC_DIR), $(SRC))

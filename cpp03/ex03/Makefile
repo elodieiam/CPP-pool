@@ -4,7 +4,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp Diamond.cpp
 
 SRC_DIR = ./
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
@@ -14,7 +14,7 @@ DEPS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.cpp=.d)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	@echo "Compiling..." $(NAME)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done !"

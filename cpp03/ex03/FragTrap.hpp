@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 12:40:08 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/03 13:17:02 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/03 13:15:23 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/03 18:53:35 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	public:
-	ScavTrap(void);
-	ScavTrap(std::string name);
-	ScavTrap (const ScavTrap &other);
-	ScavTrap &operator = (const ScavTrap &other);
-	~ScavTrap(void);
+	FragTrap(void);
+	FragTrap(std::string name);
+	FragTrap (const FragTrap &other);
+	FragTrap &operator = (const FragTrap &other);
+	~FragTrap(void);
 
+	void highFivesGuys(void);
 	void attack(const std::string& target);
-	void guardGate();
-
-	protected:
-	bool _mode;
+	
 };
-
 
 #endif

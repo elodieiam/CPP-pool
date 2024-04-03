@@ -1,34 +1,38 @@
-NAME 	= ClapTrap
+NAME = ClapTrap
 
-CPP 	= c++
+CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 
-SRC 	= main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp
 
-OBJ		= $(SRC:.cpp=.o)
+SRC_DIR = ./
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
+OBJ_DIR = obj/
+OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.cpp=.o)))
+DEPS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.cpp=.d)))
 
-DEP		= $(SRC:.cpp=.d)
+all: $(NAME)
 
-
-all : $(NAME)
-
-$(NAME) : $(OBJ)
+$(NAME): $(OBJS)
 	@echo "Compiling..." $(NAME)
-	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done !"
 
-%.o : %.cpp
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
+-include $(DEPS)
 
-clean : 
-	@rm -rf $(OBJ) $(DEP)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-fclean : clean
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+clean:
+	@rm -rf $(OBJ_DIR)
+
+fclean: clean
 	@rm -rf $(NAME)
 
-re : fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
-
--include $(DEP)
