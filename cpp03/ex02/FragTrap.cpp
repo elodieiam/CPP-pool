@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:54:55 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/03 15:36:18 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:59:41 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FragTrap Parametric constructor called" << std::endl;
 	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_energyPoints = 100;
+	_attackDamage = 30;
 
 }
 
