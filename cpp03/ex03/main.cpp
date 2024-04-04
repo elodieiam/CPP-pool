@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:27:00 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/04 15:46:27 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:56:00 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,8 @@ int main(void)
 
 	Cam.attack(Cha.getName());
 	Cha.takeDamage(Cam.getAttackDamage());
+
+	Juliette.highFivesGuys();
+	Juliette.guardGate();
+	Juliette.whoAmI();
 }

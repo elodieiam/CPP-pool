@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 12:40:08 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/04 12:36:42 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:52:36 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ class ScavTrap : public virtual ClapTrap
 
 	void attack(const std::string& target);
 	void guardGate();
-
-	private:
-	bool _mode;
 };
 
 

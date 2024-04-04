@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:46:51 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/04 15:30:38 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:55:22 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,6 @@ void	DiamondTrap::whoAmI(void)
 }
 void 	DiamondTrap::attack(const std::string& target)
 {
-	if (!this->_hitPoints || !this->_energyPoints)
-	{
-		std::cout << "DiamondTrap " << this->_name << " is dead" << std::endl;
-		return ;
-	}
-	this->_energyPoints--;
-	if (this->_energyPoints < 0)
-		this->_energyPoints = 0;
-	std::cout << "DiamondTrap " << this->_name << " attacks " << target;
-	std::cout << " , causing " << this->_attackDamage << " points of damage!" << std::endl;
+	ScavTrap::attack(target);
 }
 

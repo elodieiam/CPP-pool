@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:18 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/03 13:06:57 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:54:03 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	_mode = false;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -28,8 +27,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	_mode = false;
-
 }
 
 ScavTrap::ScavTrap (const ScavTrap &other)
@@ -76,13 +73,6 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	if (!_mode)
-	{
 		std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
-		_mode = true;
-	}
-	else
-		std::cout << "ScavTrap " << this->_name << " is already in Gate keeper mode" << std::endl;
-	
 }
 
