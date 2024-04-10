@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 15:07:33 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/03 18:53:13 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:07:51 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > 4294967295)
+	if (amount > 4294967294)
 		return ;
 	if (!this->_hitPoints || !this->_energyPoints)
 	{
@@ -83,7 +83,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (amount > 4294967295)
+	if (amount > 4294967294)
 		return ;
 	if (!this->_hitPoints || !this->_energyPoints)
 	{

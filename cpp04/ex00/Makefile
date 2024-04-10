@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = animals
 
 CXX = c++
 

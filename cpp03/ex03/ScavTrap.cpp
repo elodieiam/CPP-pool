@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:18 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/04 15:53:55 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:11:09 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 }
 
-ScavTrap::ScavTrap (const ScavTrap &other)
+ScavTrap::ScavTrap (const ScavTrap &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 

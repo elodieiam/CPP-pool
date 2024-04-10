@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:46:51 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/04 15:55:22 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:11:00 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 }
 
 
-DiamondTrap::DiamondTrap(DiamondTrap const &other)
+DiamondTrap::DiamondTrap(DiamondTrap const &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
 	std::cout << "DiamondTrap Copy constructor called" << std::endl;
 	
