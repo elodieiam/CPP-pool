@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:16:30 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/10 15:47:59 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:58:16 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Animal &Animal::operator = (const Animal &other)
 
 void Animal::makeSound(void) const
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout << "[Animal] Animal sound" << std::endl;
 }
 
 std::string Animal::getType(void) const

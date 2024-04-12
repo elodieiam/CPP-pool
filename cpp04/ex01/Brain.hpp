@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 15:39:20 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/12 18:21:25 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/12 18:14:48 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/12 20:17:19 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
-class Cat : public Animal
+class Brain
 {
 	public:
-	Cat(void);
-	Cat (const Cat &other);
-	Cat &operator = (const Cat &other);
-	~Cat(void);
+	Brain();
+	Brain(const Brain &other);
+	Brain &operator=(const Brain &other);
+	~Brain();
 
-	void makeSound(void) const;
-	std::string getType(void) const;
+	void setIdea(int index, std::string idea);
+	std::string getIdea(int index) const;
 
+	private:
+	std::string ideas[100];
 };
 
 #endif

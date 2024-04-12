@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 15:24:13 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/10 15:48:58 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:21:33 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class Dog : public Animal
 
 	void makeSound(void) const;
 	std::string getType(void) const;
-
-	protected:
-	std::string _type;
 };
 
 #endif
