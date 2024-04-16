@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:16:30 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/15 20:15:55 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:17:37 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,6 @@ Animal &Animal::operator = (const Animal &other)
 		this->_type = other._type;
 	}
 	return (*this);
-}
-
-void Animal::makeSound(void) const
-{
-	std::cout << "[Animal] Animal sound" << std::endl;
 }
 
 std::string Animal::getType(void) const

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 14:52:02 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/15 20:18:42 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/12 18:14:48 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/16 12:12:11 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "WrongAnimal.hpp"
-#include "Brain.hpp"
+#include <string>
+#include <iostream>
 
-class WrongCat : public WrongAnimal
+class Brain
 {
 	public:
-	WrongCat(void);
-	WrongCat (const WrongCat &other);
-	WrongCat &operator = (const WrongCat &other);
-	~WrongCat(void);
+	Brain();
+	Brain(const Brain &other);
+	Brain &operator=(const Brain &other);
+	~Brain();
 
-	void makeSound(void) const;
-	std::string getType(void) const;
-
-
-	protected:
-	std::string _type;
+	void setIdea(int index, std::string idea);
+	std::string getIdea(int index) const;
 
 	private:
-	Brain *_brain;
+	std::string ideas[100];
 };
 
 #endif

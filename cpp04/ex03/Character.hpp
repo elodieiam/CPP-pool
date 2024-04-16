@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 14:52:02 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/15 20:18:42 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/16 17:58:58 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/16 18:35:13 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include "WrongAnimal.hpp"
-#include "Brain.hpp"
+#include "ICharacter.hpp"
 
-class WrongCat : public WrongAnimal
+class Character : public ICharacter
 {
-	public:
-	WrongCat(void);
-	WrongCat (const WrongCat &other);
-	WrongCat &operator = (const WrongCat &other);
-	~WrongCat(void);
+	Character(void);
+	Character(std::string name);
+	Character(Character const &character);
+	Character &operator=(Character const &character);
+	~Character(void);
 
-	void makeSound(void) const;
-	std::string getType(void) const;
-
-
-	protected:
-	std::string _type;
-
-	private:
-	Brain *_brain;
+	std::string const & getName() const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
 };
 
 #endif
+

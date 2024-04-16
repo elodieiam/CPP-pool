@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 14:52:02 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/15 20:18:42 by elrichar         ###   ########.fr       */
+/*   Created: 2024/04/16 17:55:58 by elrichar          #+#    #+#             */
+/*   Updated: 2024/04/16 17:57:24 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-#include "WrongAnimal.hpp"
-#include "Brain.hpp"
+#include <string>
+#include "AMateria.hpp"
 
-class WrongCat : public WrongAnimal
+class ICharacter
 {
 	public:
-	WrongCat(void);
-	WrongCat (const WrongCat &other);
-	WrongCat &operator = (const WrongCat &other);
-	~WrongCat(void);
-
-	void makeSound(void) const;
-	std::string getType(void) const;
-
-
-	protected:
-	std::string _type;
-
-	private:
-	Brain *_brain;
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif
