@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:15:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/06 13:23:13 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/16 20:19:13 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Contact::Contact() : index(0) {}
 
-Contact::~Contact() {};
+Contact::~Contact() {}
 
 void	Contact::setIndex(int index)
 {

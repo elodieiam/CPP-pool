@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:55:58 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/16 17:57:24 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:51:15 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 #include "AMateria.hpp"
 
+
+class AMateria ;
 class ICharacter
 {
 	public:
