@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:23:07 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/17 16:12:12 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:14:11 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ void MateriaSource::learnMateria(AMateria *m)
 {
 	if (!m)
 		return ;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+		{
+			if (this->_inventory[i] == m)
+			{
+				std::cout << "Error :same materia learned" << std::endl;
+				return ;
+			}
+		}
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (!this->_inventory[i])

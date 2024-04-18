@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:47:02 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/17 18:22:16 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:17:09 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,34 @@
 int main()
 {
 
-// {
-// 	IMateriaSource* src = new MateriaSource();
-// 	src->learnMateria(new Ice());
-// 	src->learnMateria(new Cure());
-// 	ICharacter* me = new Character("me");
-// 	AMateria* tmp;
-// 	tmp = src->createMateria("ice");
-// 	me->equip(tmp);
-// 	tmp = src->createMateria("cure");
-// 	me->equip(tmp);
-// 	ICharacter* bob = new Character("bob");
-// 	me->use(0, *bob);
-// 	me->use(1, *bob);
-// 	delete bob;
-// 	delete me;
-// 	delete src;
-// }
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	std::cout << "=========================================" << std::endl;
+	std::cout << "=========================================" << std::endl;
+}
 
 {
 	IMateriaSource *src = new MateriaSource();
 
+	AMateria *test = new Cure();
 	//learning new materias
-	src->learnMateria(new Cure());
+	src->learnMateria(test);
 	src->learnMateria(new Ice());
+	src->learnMateria(test);
 	src->learnMateria(new Cure());
 	src->learnMateria(new Ice());
 
@@ -104,28 +108,10 @@ int main()
 	materia = Elo->leaveMateria(2);
 	delete materia;
 	Elo->unequip(2);
-	// materia = Elo->leaveMateria(3);
-	// delete materia;
-	// Elo->unequip(3);
 	
-	// Elo->leaveMateria(3);
-	// Elo->unequip(3);
-	// Elo->unequip(1);
-	// // Elo->unequip(2);
-	// // Elo->unequip(3);
-	// // Copy_operator->unequip(0);
-	// // Copy_operator->unequip(1);
-	// // Copy_operator->unequip(2);
-	// // Copy_operator->unequip(3);
-	// // Copy_constructor->unequip(0);
-	// // Copy_constructor->unequip(1);
-	// // Copy_constructor->unequip(2);
-	// // Copy_constructor->unequip(3);
-	
-	// // // re-equip
-	// // materia = src->createMateria("cure");
-	// // Elo->equip(materia);
-	// // Elo->unequip(0);
+	materia = Copy_operator->leaveMateria(0);
+	delete materia;
+	Copy_operator->unequip(0);
 
 	delete Elo;
 	delete Copy_operator;
