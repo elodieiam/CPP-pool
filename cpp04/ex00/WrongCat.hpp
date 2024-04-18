@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:52:02 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/12 15:14:26 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:17:12 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class WrongCat : public WrongAnimal
 
 	void makeSound(void) const;
 	std::string getType(void) const;
-
-	protected:
-	std::string _type;
 };
 
 #endif
