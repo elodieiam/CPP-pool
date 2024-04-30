@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 16:51:53 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/26 17:06:11 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:38:40 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	try
 	{
 		Bureaucrat Elo("Elooo", 5);
-		std::cout << "Bureaucrat " << Elo.getName() << " created with grade " << Elo.getGrade() << std::endl;
+		std::cout << Elo;
 		Elo.increment();
 		std::cout << "Grade after incrementation : " << Elo.getGrade() << std::endl;
 		Elo.increment();

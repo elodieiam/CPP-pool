@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 16:17:46 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/28 19:00:01 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/04/30 21:17:54 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ void Bureaucrat::increment(void)
 		this->_grade--;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
-	catch(Form::GradeTooLowException &e)
+	catch(AForm::GradeTooLowException &e)
 	{
 		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because ";
 		std::cerr << e.what() << '\n';
 	}
-	catch(Form::FormAlreadySignedException &e)
+	catch(AForm::FormAlreadySignedException &e)
 	{
 		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because ";
 		std::cerr << e.what() << '\n';
