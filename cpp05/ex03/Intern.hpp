@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:25:47 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/01 14:46:37 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:42:24 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ class Intern
 		const char* what(void) const throw();
 	};
 	
+	private:
+	AForm* PPF(std::string target);
+	AForm* RRF(std::string target);
+	AForm* SCF(std::string target);
+	AForm* (Intern::*arr[3])(std::string target);
 };
 
 #endif

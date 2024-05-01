@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 16:17:46 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/30 21:17:54 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:26:18 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,19 @@ void Bureaucrat::signForm(AForm &form)
 		std::cerr << e.what() << '\n';
 	}
 	
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << this->_name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 /****Exceptions*****/

@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:11:16 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/30 22:20:29 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:25:08 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int main()
 		std::cout << f1 << std::endl;
 
 		Elo.signForm(f1);
+		Elo.executeForm(f1);
 		f1.execute(Elo);
 		f1.execute(Elo);
+		Faj.executeForm(f1);
 		f1.execute(Faj);
 	}
 	catch(const std::exception& e)

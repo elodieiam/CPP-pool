@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 16:08:23 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/30 21:18:29 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:26:04 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
 	void			  decrement(void);
 	void			  increment(void);
 	void			  signForm(AForm &form);
+	void			  executeForm(AForm const & form);
 	
 	/*Exceptions*/
 	class GradeTooHighException : public std::exception
