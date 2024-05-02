@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:11:16 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/01 15:25:08 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:31:13 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ int main()
 
 		Elo.signForm(f1);
 		Elo.executeForm(f1);
-		f1.execute(Elo);
-		f1.execute(Elo);
+		Elo.executeForm(f1);
+		Elo.executeForm(f1);
 		Faj.executeForm(f1);
-		f1.execute(Faj);
 	}
 	catch(const std::exception& e)
 	{
@@ -55,12 +54,12 @@ int main()
 		std::cout << Elo << std::endl;
 		std::cout << f2 << std::endl;
 		Elo.signForm(f2);
-		f2.execute(Elo);
-		f2.execute(Elo);
-		f2.execute(Elo);
+		Elo.executeForm(f2);
+
 
 		Bureaucrat Faj("Faj", 99);
-		f2.execute(Faj);
+		Faj.executeForm(f2);
+
 
 	}
 	catch(const std::exception& e)
@@ -78,9 +77,8 @@ int main()
 		ShrubberyCreationForm f3("form 3");
 
 		Elo.signForm(f3);
-		f3.execute(Faj);
-		f3.execute(Faj);
-
+		Faj.executeForm(f3);
+		Faj.executeForm(f3);
 	}
 	catch(const std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:30:39 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/30 15:15:01 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:46:54 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int main()
 		std::cout << Attestation << std::endl << std::endl;
 		Elo.signForm(Attestation);
 		std::cout << std::endl << std::endl;
-		Attestation.beSigned(Faj);
+		Faj.signForm(Attestation);
+		Elo.increment();
+		Elo.increment();
+		Elo.signForm(Attestation);
 		std::cout << std::endl << std::endl;
 	}
 	catch(const std::exception& e)
@@ -58,7 +61,7 @@ int main()
 		std::cout << Attest;
 		std::cout << std::endl;
 		Elo.signForm(Attest);
-		Attest.beSigned(Faj);
+		Faj.signForm(Attest);
 	}
 	catch(const std::exception& e)
 	{

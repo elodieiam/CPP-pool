@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:11:16 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/01 15:02:41 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:37:57 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
 		std::cout << *f1 << std::endl;
 
 		Elo.signForm(*f1);
-		(*f1).execute(Elo);
+		Elo.executeForm(*f1);
 
 		delete f1;
 	}
@@ -58,11 +58,14 @@ int main()
 		std::cout << *f2 << std::endl;
 		
 		Elo.signForm(*f2);
-		(*f2).execute(Elo);
-		(*f2).execute(Elo);
+		Elo.executeForm(*f2);
+		Elo.executeForm(*f2);
 
 		Bureaucrat Faj("Faj", 99);
-		(*f2).execute(Faj);
+		Elo.executeForm(*f2);
+
+
+		delete f2;
 	}
 	catch(const std::exception& e)
 	{
@@ -83,7 +86,9 @@ int main()
 		std::cout << *f3 << std::endl;
 		
 		Elo.signForm(*f3);
-		(*f3).execute(Elo);
+		Elo.executeForm(*f3);
+
+		delete f3;
 	}
 	catch(const std::exception& e)
 	{
@@ -104,7 +109,9 @@ int main()
 		std::cout << *f4 << std::endl;
 		
 		Elo.signForm(*f4);
-		(*f4).execute(Elo);
+		Elo.executeForm(*f4);
+
+		delete f4;
 	}
 	catch(const std::exception& e)
 	{
