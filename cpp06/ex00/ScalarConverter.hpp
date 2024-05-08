@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:45 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/07 16:07:09 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:42:45 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define SCALARCONVERTER_HPP
 
 #include <string>
+#include <iostream>
+#include <limits>
+#include <cstdlib>
+#include <sstream>
 
 class ScalarConverter
 {
@@ -31,15 +35,22 @@ class ScalarConverter
 bool is_specific(std::string str);
 bool is_char(std::string str);
 bool is_int(std::string str);
+bool is_float(std::string str);
+bool is_double(std::string str);
+
 
 
 
 void display_specific(std::string str);
 void display_char(std::string str);
 void display_int(std::string str);
+void display_float(std::string str);
+void display_double(std::string str);
+
 
 
 void display_error(void);
+void print_error(std::string str);
 
 
 
