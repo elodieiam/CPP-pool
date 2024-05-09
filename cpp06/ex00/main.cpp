@@ -6,5 +6,6 @@ int main(int ac, char **av)
 	{
 		std::string nb = av[1];
 		ScalarConverter::convert(nb);
+
 	}
 }

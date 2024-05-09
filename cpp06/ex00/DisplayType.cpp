@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:17:57 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/08 15:39:56 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:16:51 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,19 +102,19 @@ void display_double(std::string str)
 		std::cout << "char: " << "'" << static_cast<char>(nb) << "'" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	if (nb < static_cast<double>(std::numeric_limits<int>::min()) || nb > static_cast<double>(std::numeric_limits<int>::max()))
+	if ((nb < static_cast<double>(std::numeric_limits<int>::min())) || (nb > static_cast<double>(std::numeric_limits<int>::max())))
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(nb) << std::endl;
-	if (nb < static_cast<double>(std::numeric_limits<float>::min()) || nb >  static_cast<double>(std::numeric_limits<float>::max()))
-		std::cout << "float: impossible" << std::endl;
-	else
-	{
+	// if ((nb < -1.17549e-38) || (nb > 3.40282e+38))
+	// 	std::cout << "float: impossible" << std::endl;
+	// else
+	// {
 		if (static_cast<float>(nb) == static_cast<int>(nb))
 			std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
 		else
 			std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
-	}
+	// }
 	if (nb == static_cast<int>(nb))
 		std::cout << "double: " << nb << ".0" << std::endl;
 	else
@@ -128,3 +128,6 @@ void display_error(void)
 	std::cout << "float: impossible" << std::endl;
 	std::cout << "double: impossible" << std::endl;	
 }
+
+
+

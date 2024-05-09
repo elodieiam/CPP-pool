@@ -6,9 +6,12 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:12:48 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/08 15:42:45 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:32:43 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ScalarConverter.hpp"
+
 
 #include "ScalarConverter.hpp"
 
@@ -88,11 +91,24 @@ bool is_float(std::string str)
 		return (false);
 	if (str[i + 1])
 		return (false);
-	
-	if (!(stream >> value))
+
+	if (str[0] == '-' || str[0] == '+')
+	{
+		std::string substr = str.substr(1);
+		std::istringstream stream(substr);
+		if (!(stream >> value))
+		{
+			print_error("[error] : istringstream failed");
+			return (false);
+		}
+	}
+	else
+	{
+		if (!(stream >> value))
 	{
 		print_error("[error] : istringstream failed");
 		return (false);
+	}
 	}
 	if ((value < std::numeric_limits<float>::min()) || value > std::numeric_limits<float>::max())
 		return (false);
@@ -127,10 +143,23 @@ bool is_double(std::string str)
 		i++;
 	}
 	
-	if (!(stream >> value))
+	if (str[0] == '-' || str[0] == '+')
+	{
+		std::string substr = str.substr(1);
+		std::istringstream stream(substr);
+		if (!(stream >> value))
+		{
+			print_error("[error] : istringstream failed");
+			return (false);
+		}
+	}
+	else
+	{
+		if (!(stream >> value))
 	{
 		print_error("[error] : istringstream failed");
 		return (false);
+	}
 	}
 	if ((value < std::numeric_limits<double>::min()) || value > std::numeric_limits<double>::max())
 		return (false);

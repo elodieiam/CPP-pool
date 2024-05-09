@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:45 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/08 15:42:45 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:04:11 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,5 @@ void display_double(std::string str);
 
 void display_error(void);
 void print_error(std::string str);
-
-
 
 #endif
