@@ -1,4 +1,4 @@
-NAME = convert
+NAME = base
 
 CXX = c++
 
