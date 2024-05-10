@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:38:43 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/09 18:08:09 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:11:12 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,7 @@ void ScalarConverter::convert(std::string str)
 	else if (is_int(str))
 		display_int(str);
 	else if (is_float(str))
-	{
-		
-	std::cout << "passe" << std::endl;
 		display_float(str);
-	}
 	else if (is_double(str))
 		display_double(str);
 	else

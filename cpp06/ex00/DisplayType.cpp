@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:17:57 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/09 21:51:11 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:11:58 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,15 +106,10 @@ void display_double(std::string str)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(nb) << std::endl;
-	// if ((nb < -1.17549e-38) || (nb > 3.40282e+38))
-	// 	std::cout << "float: impossible" << std::endl;
-	// else
-	// {
-		if (static_cast<float>(nb) == static_cast<int>(nb))
-			std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
-		else
-			std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
-	// }
+	if (static_cast<float>(nb) == static_cast<int>(nb))
+		std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
+	else
+		std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
 	if (nb == static_cast<int>(nb))
 		std::cout << "double: " << nb << ".0" << std::endl;
 	else
