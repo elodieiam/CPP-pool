@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 18:13:23 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/10 18:36:41 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:16:05 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,23 @@ int main()
 	std::cout << green << "Tests with ints : " << reset << std::endl;
 
 	int arr[4] = {2, 4, 6, 8};
-	iter(arr, 4, &print);
+	::iter(arr, 4, ::print);
 	std::cout << std::endl << std::endl;
 
 	std::cout << green << "Tests with strings : " << reset << std::endl;
 	std::string arr1[4] = {"bonjour", "je", "m'appelle", "Elodie"};
-	iter(arr1, 4, print);
+	::iter(arr1, 4, ::print);
 	std::cout << std::endl << std::endl;
 
 	std::cout << green << "Tests with floats : " << reset << std::endl;
 	float arr2[8] = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8};
-	iter(arr2, 8, print);
+	::iter(arr2, 8, ::print);
 	std::cout << std::endl << std::endl;
 
-
+	std::cout << green << "Tests with an empty array : " << reset << std::endl;
+	int arr3[0] = {};
+	::iter(arr3, 0, ::print);
+	std::cout << std::endl << std::endl;
 }
 
 // class Awesome
