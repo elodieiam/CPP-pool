@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 18:00:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/05/10 18:40:32 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:31:16 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 
 template <typename Type>
 void iter(Type *addr, int len, void (*fct)(Type &a))
+{
+	if (!addr || !fct)
+		return ;
+	for (int i = 0; i < len; i++)
+		fct(addr[i]);
+}
+
+template <typename Type>
+void iter(Type *addr, int len, void (*fct)(const Type &a))
 {
 	if (!addr || !fct)
 		return ;
