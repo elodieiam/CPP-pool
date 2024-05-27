@@ -4,7 +4,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -g3
 
-SRC = main.cpp 
+SRC = main.cpp BitcoinExchange.cpp
 
 SRC_DIR = ./
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
