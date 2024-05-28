@@ -29,6 +29,10 @@ class BitcoinExchange
 	void checkGlobalFormat(std::string line);
 
 	void checkDate(std::string line);
+	float checkValue(std::string line);
+
+	void convert(std::string line, float value);
+
 
 
 
@@ -40,17 +44,26 @@ class BitcoinExchange
 		const char* what(void) const throw();
 	};
 
-	class ErrorInputFileFormatException : public std::exception
+	class NumberTooLowException : public std::exception
 	{
 		public:
 		const char* what(void) const throw();
 	};
 
-	class ErrorDateFormatException : public std::exception
+	class NumberTooHighException : public std::exception
 	{
 		public:
 		const char* what(void) const throw();
 	};
+
+	class BadInputException : public std::exception
+	{
+		public:
+		const char* what(void) const throw();
+	};
+
+
+
 
 };
 
