@@ -60,10 +60,10 @@ void BitcoinExchange::processInput(const std::string file)
 	{
 		try 
 		{
-			checkGlobalFormat(line);
-			checkDate(line);
+			BitcoinExchange::checkGlobalFormat(line);
+			BitcoinExchange::checkDate(line);
 			float value = checkValue(line);
-			convert(line, value);
+			BitcoinExchange::convert(line, value);
 		}
 		catch(const std::exception& e)
 		{
@@ -78,7 +78,7 @@ void BitcoinExchange::processInput(const std::string file)
 
 /***Conversion functions******/
 
-void BitcoinExchange::convert(std::string line, float value)
+void BitcoinExchange::convert(std::string line, float value) 
 {
 	std::string date = line.erase(10);
 	std::map<std::string, float>::iterator it;

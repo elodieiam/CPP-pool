@@ -2,13 +2,12 @@
 
 int main(int ac, char **av)
 {
-	BitcoinExchange btc;
 
 if (ac == 2)
 {
-
 	try
 	{
+		BitcoinExchange btc;
 
 		btc.setDataBase();
 		btc.processInput(av[1]);
@@ -17,5 +16,7 @@ if (ac == 2)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-}
+	}
+	else
+			std::cout << "Error: could not open file." << std::endl;
 }
