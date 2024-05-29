@@ -2,7 +2,7 @@ NAME = templates
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -g3
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 
 SRC = main.cpp 
 

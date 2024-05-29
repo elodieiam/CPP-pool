@@ -6,11 +6,11 @@
 #include <iostream>
 #include <exception>
 #include <cctype>
+#include <sstream>
 
 class RPN
 {
 	private:
-	std::stack<int> _stack;
 
 
 	public:
@@ -28,6 +28,8 @@ class RPN
 	void isSubPartCorrect(std::string str, int i);
 
 	void doOperation(std::string str);
+
+	int check_base(std::string str);
 
 	class ErrorException : public std::exception
 	{
