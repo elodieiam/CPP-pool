@@ -2,12 +2,13 @@
 #define PMERGEME_HPP
 
 #include <vector>
-#include <list>
+#include <deque>
 #include <stdexcept>
 #include <exception>
 #include <string>
 #include <cstdlib> 
 #include <iostream>
+#include <algorithm>
 
 class PMergeMe
 {
@@ -18,16 +19,24 @@ class PMergeMe
 	~PMergeMe();
 
 	void checkInput(int ac, char **av);
-	void sortInput(int ac, char **av);
-	std::vector<int> sortVector();
-	std::vector<std::pair<int, int>> createPairVector();
-	std::vector<std::pair<int, int>> sortPairVector(std::vector<std::pair<int, int>> vector);
+	void sortInput();
+	
+	void sortVector();
+
+	
+
 
 
 	private:
-	std::list<int> _list;
+	std::deque<int> _deque;
 	std::vector<int> _vector;
 
+	//vectors
+	int isSortedVec() const;
+	int hasDouble() const;
+
+	//deque
+	
 };
 
 #endif

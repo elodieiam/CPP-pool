@@ -1,5 +1,7 @@
 #include "PmergeMe.hpp"
 
+//penser à vérifier les doublons !
+
 int main(int ac, char **av)
 {
 	PMergeMe Pmerge;
