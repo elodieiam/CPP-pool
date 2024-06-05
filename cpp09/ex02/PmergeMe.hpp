@@ -21,7 +21,6 @@ class PMergeMe
 	void checkInput(int ac, char **av);
 	void sortInput();
 	
-	void sortVector();
 
 	
 
@@ -31,10 +30,15 @@ class PMergeMe
 	std::deque<int> _deque;
 	std::vector<int> _vector;
 
-	//vectors
+	int _oddNb;
+
 	int isSortedVec() const;
 	int hasDouble() const;
-
+	
+	//vectors
+	void _sortVector();
+	void _makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall);
+	void _mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall);
 	//deque
 	
 };

@@ -53,11 +53,102 @@ int PMergeMe::isSortedVec() const
 	return (1);
 }
 
+//////////// MERGE SORT /////////////////////
+void PMergeMe::sortInput()
+{
+	_sortVector();
+}
+
+/////////// VECTOR //////////////////////
+
+void PMergeMe::_sortVector()
+{
+	std::vector<int> vbig;
+	std::vector<int> vsmall;
+	_makePairsVec(vbig, vsmall);
+	_mergeSortVec(vbig, vsmall);
+}
+
+void PMergeMe::_mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall)
+{
+	if (vbig.size() > 1)
+	{
+		int mid = vbig.size() / 2;
+
+		std::vector<int> vbl;
+		std::vector<int> vbr;
+		std::vector<int> vsl;
+		std::vector<int> vsr;
+
+		vbl.assign(vbig.begin(), vbig.begin() + mid);
+		vbr.assign(vbig.begin() + mid, vbig.end());
+		vsl.assign(vsmall.begin(), vsmall.begin() + mid);
+		vsr.assign(vsmall.begin() + mid, vsmall.begin());
+
+		_mergeSortVec(vbl, vsl);
+		_mergeSortVec(vbr, vsr);
+		
+		size_t i = 0, j = 0, k = 0;
+		while (i < vbl.size() && j < vbr.size())
+		{
+			if (vbl[i] < vbr[j])
+			{
+				vbig[k] = vbl[i];
+				vsmall[k] = vsl[i];
+				i++; 
+			}
+			else
+			{
+				vbig[k] = vbr[j];
+				vsmall[k] = vsr[j];
+				j++;
+			}
+			k++;
+		}
+		while (i < vbl.size())
+		{
+			vbig[k] = vbl[i];
+			vsmall[k] = vsl[i];
+			i++;
+			k++;
+		}
+		while (j < vbr.size())
+		{
+			vbig[k] = vbr[j];
+			vsmall[k] = vsr[j];
+			j++;
+			k++;
+		}
+	}
+}
+
+
+void PMergeMe::_makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall)
+{
+	if (_vector.size() % 2)
+	{
+		_oddNb = _vector[_vector.size() - 1];
+		_vector.pop_back();
+	}
+	for (unsigned int i = 0; i < _vector.size(); i += 2)
+	{
+		if (_vector[i] < _vector[i + 1])
+		{
+			vsmall.push_back(_vector[i]);
+			vbig.push_back(_vector[i + 1]);
+		}
+		else
+		{
+			vsmall.push_back(_vector[i + 1]);
+			vbig.push_back(_vector[i]);
+		}
+	}
+}
 
 
 //Constructors & destructors & operator =
 
-PMergeMe::PMergeMe() {}
+PMergeMe::PMergeMe() : _oddNb(-1) {}
 
 PMergeMe::PMergeMe(const PMergeMe &src)
 {
