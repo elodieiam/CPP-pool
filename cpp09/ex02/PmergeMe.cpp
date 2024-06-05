@@ -6,7 +6,8 @@ void PMergeMe::checkInput(int ac, char **av)
 {
 	if (ac < 2)
 		throw std::runtime_error("ERROR : Incorrect number of arguments");
-
+	
+	_size = ac - 1;
 	std::string arg;
 	long		nb;
 	int			element;
@@ -57,6 +58,11 @@ int PMergeMe::isSortedVec() const
 void PMergeMe::sortInput()
 {
 	_sortVector();
+	for (unsigned int i = 0; i < _size; i++)
+	{
+		std::cout << _vector[i] << " ";
+	}
+	std::cout << std::endl;
 }
 
 /////////// VECTOR //////////////////////
@@ -67,6 +73,85 @@ void PMergeMe::_sortVector()
 	std::vector<int> vsmall;
 	_makePairsVec(vbig, vsmall);
 	_mergeSortVec(vbig, vsmall);
+
+	if (_oddNb >= 0)
+		vsmall.push_back(_oddNb);
+	_vector.clear();
+	for (unsigned int i = 0; i < vbig.size(); i++)
+		_vector.push_back(vbig[i]);
+	_vector.insert(_vector.begin(), vsmall[0]);
+	
+	if (_vector.size() == _size)
+		return ;
+	//on trouve l'indice auquel on peut l'insérer sans changer l'ordre du vecteur
+	std::vector<int>::iterator it = std::upper_bound(_vector.begin(), _vector.end(), vsmall[1]);
+	
+	_vector.insert(it, vsmall[1]);
+	//high et low déterminent la plage de recherche pour trouver l'indice optimal où insérer la valeur
+	//mid = indice médian de la plage de recherche pour diviser la plage en 2 et choisir dans quelle moitié poursuivre la recherche
+	//index = l'indice dans vsmall à partir duquel on veut insérer les valeurs. on insère ensuite toutes les valeurs dont l'indice est < à index
+	int jacob = 3;
+	unsigned int jacobN_1 = 1;
+	int low = 0;
+	int high = _vector.size() - 1;
+	unsigned int mid = low + (high - low) / 2;
+	unsigned int index = jacob;
+	
+	while (_vector.size() != _size)
+	{
+		//si index > taille vsmall mais qu'il reste encore des choses à insérer on parcourt vsmall à partir d'un autre index
+		if (index >= vsmall.size() && _vector.size() != _size)
+		{
+			index = jacobN_1 + 1;
+			while (index < vsmall.size())
+			{
+				_dichotomyInsert(high, low, mid, index, vsmall);
+				index++;
+			}
+		}
+		if (_vector.size() == _size)
+			break ;
+		//on traite les élts par ordre décroissant de index à jacobN_1
+		while (index > jacobN_1)
+		{
+			_dichotomyInsert(high, low, mid, index, vsmall);
+			index--;
+		}
+		//màj de la suite de jacobsthal
+		int tmpJacob = jacob;
+		jacob = tmpJacob + 2 * jacobN_1;
+		jacobN_1 = tmpJacob;
+		index = jacob;
+	}
+}
+
+/*
+Insertion dichotomique d'un élt de vsmall en indice index dans _vector
+recherche binaire pour trouver la pos d'insertion correcte pour maintenir l'ordre de tri du vecteur
+*/
+void PMergeMe::_dichotomyInsert(int high, int low, unsigned int mid, unsigned int &index, std::vector<int> &vsmall)
+{
+	while ((high - low) > 1)
+	{
+		if (_vector[mid] < vsmall[index]) //on va dans la moitié droite
+		{
+			low = mid;
+			mid = low + (high - low) / 2;
+		}
+		else if (_vector[mid] > vsmall[index]) //moitié gauche
+		{
+			high = mid;
+			mid = low + (high - low) / 2;
+		}
+	}
+	//l'élt à insérer est + petit que tous les élts actuels de _vector
+	if (mid == 0 && vsmall[index] < _vector[mid])
+		_vector.insert(_vector.begin(), vsmall[index]);
+	//l'élet à insérer est + grand que tous les autres
+	else if (mid == (_vector.size() - 2) && (vsmall[index] > _vector[mid] && vsmall[index] > _vector[mid + 1]))
+		_vector.insert(_vector.begin() + mid + 2, vsmall[index]);
+	else
+		_vector.insert(_vector.begin() + mid + 1, vsmall[index]);
 }
 
 void PMergeMe::_mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall)
@@ -81,9 +166,13 @@ void PMergeMe::_mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall)
 		std::vector<int> vsr;
 
 		vbl.assign(vbig.begin(), vbig.begin() + mid);
+		
 		vbr.assign(vbig.begin() + mid, vbig.end());
+		
 		vsl.assign(vsmall.begin(), vsmall.begin() + mid);
-		vsr.assign(vsmall.begin() + mid, vsmall.begin());
+		
+		vsr.assign(vsmall.begin() + mid, vsmall.end());
+
 
 		_mergeSortVec(vbl, vsl);
 		_mergeSortVec(vbr, vsr);
@@ -125,6 +214,7 @@ void PMergeMe::_mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall)
 
 void PMergeMe::_makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall)
 {
+	
 	if (_vector.size() % 2)
 	{
 		_oddNb = _vector[_vector.size() - 1];
@@ -143,6 +233,7 @@ void PMergeMe::_makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall)
 			vbig.push_back(_vector[i]);
 		}
 	}
+	
 }
 
 

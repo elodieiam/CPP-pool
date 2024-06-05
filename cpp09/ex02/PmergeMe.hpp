@@ -31,6 +31,7 @@ class PMergeMe
 	std::vector<int> _vector;
 
 	int _oddNb;
+	size_t _size;
 
 	int isSortedVec() const;
 	int hasDouble() const;
@@ -39,6 +40,8 @@ class PMergeMe
 	void _sortVector();
 	void _makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall);
 	void _mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall);
+	void _dichotomyInsert(int high, int low, unsigned int mid, unsigned int &index, std::vector<int> &vsmall);
+	
 	//deque
 	
 };
