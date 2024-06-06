@@ -9,7 +9,7 @@ int main(int ac, char **av)
 	try
 	{
 		Pmerge.checkInput(ac, av);
-		Pmerge.sortInput();
+		Pmerge.sortInput(ac, av);
 	}
 	catch(const std::exception& e)
 	{

@@ -19,7 +19,7 @@ class PMergeMe
 	~PMergeMe();
 
 	void checkInput(int ac, char **av);
-	void sortInput();
+	void sortInput(int ac, char **av);
 	
 
 	
@@ -43,7 +43,10 @@ class PMergeMe
 	void _dichotomyInsert(int high, int low, unsigned int mid, unsigned int &index, std::vector<int> &vsmall);
 	
 	//deque
-	
+	void _sortDeque();
+	void _makePairsDeque(std::deque<int> &vbig, std::deque<int> &vsmall);
+	void _mergeSortDeque(std::deque<int> &vbig, std::deque<int> &vsmall);
+	void _dichotomyInsertDeque(int high, int low, unsigned int mid, unsigned int &index, std::deque<int> &vsmall);
 };
 
 #endif

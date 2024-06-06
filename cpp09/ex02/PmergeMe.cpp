@@ -55,14 +55,29 @@ int PMergeMe::isSortedVec() const
 }
 
 //////////// MERGE SORT /////////////////////
-void PMergeMe::sortInput()
+void PMergeMe::sortInput(int ac, char **av)
 {
-	_sortVector();
-	for (unsigned int i = 0; i < _size; i++)
-	{
-		std::cout << _vector[i] << " ";
-	}
+	std::cout << "Before: ";
+	for (int i = 1; i < ac; i++)
+		std::cout << av[i] << " ";
 	std::cout << std::endl;
+
+	clock_t tVecStart = clock();
+	_sortVector();
+	clock_t tVecEnd = clock();
+
+	std::cout << "After: ";
+	for (unsigned int i = 0; i < _size; i++)
+		std::cout << _vector[i] << " ";
+	std::cout << std::endl;
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector<int> : ";
+	std::cout << static_cast<double>(tVecEnd - tVecStart) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
+
+	clock_t tDequeStart = clock();
+	_sortDeque();
+	clock_t tDequeEnd = clock();
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque<int> : ";
+	std::cout << static_cast<double>(tDequeEnd - tDequeStart) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 }
 
 /////////// VECTOR //////////////////////
@@ -236,6 +251,165 @@ void PMergeMe::_makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall)
 	
 }
 
+/////////// DEQUE //////////////////////
+void PMergeMe::_sortDeque()
+{
+	std::deque<int> vbig;
+	std::deque<int> vsmall;
+	_makePairsDeque(vbig, vsmall);
+	_mergeSortDeque(vbig, vsmall);
+
+	if (_oddNb >= 0)
+		vsmall.push_back(_oddNb);
+	_deque.clear();
+	for (unsigned int i = 0; i < vbig.size(); i++)
+		_deque.push_back(vbig[i]);
+	_deque.insert(_deque.begin(), vsmall[0]);
+	
+	if (_deque.size() == _size)
+		return ;
+	//on trouve l'indice auquel on peut l'insérer sans changer l'ordre du vecteur
+	std::deque<int>::iterator it = std::upper_bound(_deque.begin(), _deque.end(), vsmall[1]);
+	
+	_deque.insert(it, vsmall[1]);
+	//high et low déterminent la plage de recherche pour trouver l'indice optimal où insérer la valeur
+	//mid = indice médian de la plage de recherche pour diviser la plage en 2 et choisir dans quelle moitié poursuivre la recherche
+	//index = l'indice dans vsmall à partir duquel on veut insérer les valeurs. on insère ensuite toutes les valeurs dont l'indice est < à index
+	int jacob = 3;
+	unsigned int jacobN_1 = 1;
+	int low = 0;
+	int high = _deque.size() - 1;
+	unsigned int mid = low + (high - low) / 2;
+	unsigned int index = jacob;
+	
+	while (_deque.size() != _size)
+	{
+		//si index > taille vsmall mais qu'il reste encore des choses à insérer on parcourt vsmall à partir d'un autre index
+		if (index >= vsmall.size() && _deque.size() != _size)
+		{
+			index = jacobN_1 + 1;
+			while (index < vsmall.size())
+			{
+				_dichotomyInsertDeque(high, low, mid, index, vsmall);
+				index++;
+			}
+		}
+		if (_deque.size() == _size)
+			break ;
+		//on traite les élts par ordre décroissant de index à jacobN_1
+		while (index > jacobN_1)
+		{
+			_dichotomyInsertDeque(high, low, mid, index, vsmall);
+			index--;
+		}
+		//màj de la suite de jacobsthal
+		int tmpJacob = jacob;
+		jacob = tmpJacob + 2 * jacobN_1;
+		jacobN_1 = tmpJacob;
+		index = jacob;
+	}
+}
+void PMergeMe::_makePairsDeque(std::deque<int> &vbig, std::deque<int> &vsmall)
+{
+	if (_deque.size() % 2)
+	{
+		_oddNb = _deque[_deque.size() - 1];
+		_deque.pop_back();
+	}
+	for (unsigned int i = 0; i < _deque.size(); i += 2)
+	{
+		if (_deque[i] < _deque[i + 1])
+		{
+			vsmall.push_back(_deque[i]);
+			vbig.push_back(_deque[i + 1]);
+		}
+		else
+		{
+			vsmall.push_back(_deque[i + 1]);
+			vbig.push_back(_deque[i]);
+		}
+	}
+}
+void PMergeMe::_mergeSortDeque(std::deque<int> &vbig, std::deque<int> &vsmall)
+{
+	if (vbig.size() > 1)
+	{
+		int mid = vbig.size() / 2;
+
+		std::deque<int> vbl;
+		std::deque<int> vbr;
+		std::deque<int> vsl;
+		std::deque<int> vsr;
+
+		vbl.assign(vbig.begin(), vbig.begin() + mid);
+		
+		vbr.assign(vbig.begin() + mid, vbig.end());
+		
+		vsl.assign(vsmall.begin(), vsmall.begin() + mid);
+		
+		vsr.assign(vsmall.begin() + mid, vsmall.end());
+
+
+		_mergeSortDeque(vbl, vsl);
+		_mergeSortDeque(vbr, vsr);
+		
+		size_t i = 0, j = 0, k = 0;
+		while (i < vbl.size() && j < vbr.size())
+		{
+			if (vbl[i] < vbr[j])
+			{
+				vbig[k] = vbl[i];
+				vsmall[k] = vsl[i];
+				i++; 
+			}
+			else
+			{
+				vbig[k] = vbr[j];
+				vsmall[k] = vsr[j];
+				j++;
+			}
+			k++;
+		}
+		while (i < vbl.size())
+		{
+			vbig[k] = vbl[i];
+			vsmall[k] = vsl[i];
+			i++;
+			k++;
+		}
+		while (j < vbr.size())
+		{
+			vbig[k] = vbr[j];
+			vsmall[k] = vsr[j];
+			j++;
+			k++;
+		}
+	}
+}
+void PMergeMe::_dichotomyInsertDeque(int high, int low, unsigned int mid, unsigned int &index, std::deque<int> &vsmall)
+{
+	while ((high - low) > 1)
+	{
+		if (_deque[mid] < vsmall[index]) //on va dans la moitié droite
+		{
+			low = mid;
+			mid = low + (high - low) / 2;
+		}
+		else if (_deque[mid] > vsmall[index]) //moitié gauche
+		{
+			high = mid;
+			mid = low + (high - low) / 2;
+		}
+	}
+	//l'élt à insérer est + petit que tous les élts actuels de _vector
+	if (mid == 0 && vsmall[index] < _deque[mid])
+		_deque.insert(_deque.begin(), vsmall[index]);
+	//l'élet à insérer est + grand que tous les autres
+	else if (mid == (_deque.size() - 2) && (vsmall[index] > _deque[mid] && vsmall[index] > _deque[mid + 1]))
+		_deque.insert(_deque.begin() + mid + 2, vsmall[index]);
+	else
+		_deque.insert(_deque.begin() + mid + 1, vsmall[index]);
+}
 
 //Constructors & destructors & operator =
 
