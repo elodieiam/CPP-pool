@@ -34,19 +34,20 @@ class PMergeMe
 	size_t _size;
 
 	int isSortedVec() const;
+	int isSortedDeq() const;
 	int hasDouble() const;
 	
 	//vectors
 	void _sortVector();
 	void _makePairsVec(std::vector<int> &vbig, std::vector<int> &vsmall);
 	void _mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall);
-	void _dichotomyInsert(int high, int low, unsigned int mid, unsigned int &index, std::vector<int> &vsmall);
+	void _dichotomyInsert(int &high, int &low, unsigned int &mid, unsigned int &index, std::vector<int> &vsmall);
 	
 	//deque
 	void _sortDeque();
 	void _makePairsDeque(std::deque<int> &vbig, std::deque<int> &vsmall);
 	void _mergeSortDeque(std::deque<int> &vbig, std::deque<int> &vsmall);
-	void _dichotomyInsertDeque(int high, int low, unsigned int mid, unsigned int &index, std::deque<int> &vsmall);
+	void _dichotomyInsertDeque(int &high, int &low, unsigned int &mid, unsigned int &index, std::deque<int> &vsmall);
 };
 
 #endif

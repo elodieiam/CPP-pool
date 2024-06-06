@@ -54,6 +54,19 @@ int PMergeMe::isSortedVec() const
 	return (1);
 }
 
+int PMergeMe::isSortedDeq() const
+{
+	for (unsigned int i = 0; i < _deque.size(); i++)
+	{
+		for (unsigned int j = i + 1; j < _deque.size(); j++)
+		{
+			if (_deque[i] > _deque[j])
+				return (0);
+		}
+	}
+	return (1);
+}
+
 //////////// MERGE SORT /////////////////////
 void PMergeMe::sortInput(int ac, char **av)
 {
@@ -78,6 +91,13 @@ void PMergeMe::sortInput(int ac, char **av)
 	clock_t tDequeEnd = clock();
 	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque<int> : ";
 	std::cout << static_cast<double>(tDequeEnd - tDequeStart) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
+
+
+	if (isSortedVec())
+		std::cout << "vector is sorted !!! "<< std::endl;
+	if (isSortedDeq())
+		std::cout << "deqye is sorted !!! "<< std::endl;
+
 }
 
 /////////// VECTOR //////////////////////
@@ -144,7 +164,7 @@ void PMergeMe::_sortVector()
 Insertion dichotomique d'un élt de vsmall en indice index dans _vector
 recherche binaire pour trouver la pos d'insertion correcte pour maintenir l'ordre de tri du vecteur
 */
-void PMergeMe::_dichotomyInsert(int high, int low, unsigned int mid, unsigned int &index, std::vector<int> &vsmall)
+void PMergeMe::_dichotomyInsert(int &high, int &low, unsigned int &mid, unsigned int &index, std::vector<int> &vsmall)
 {
 	while ((high - low) > 1)
 	{
@@ -167,6 +187,9 @@ void PMergeMe::_dichotomyInsert(int high, int low, unsigned int mid, unsigned in
 		_vector.insert(_vector.begin() + mid + 2, vsmall[index]);
 	else
 		_vector.insert(_vector.begin() + mid + 1, vsmall[index]);
+	low = 0;
+	high = _vector.size() - 1;
+	mid = low + (high - low) / 2;
 }
 
 void PMergeMe::_mergeSortVec(std::vector<int> &vbig, std::vector<int> &vsmall)
@@ -386,7 +409,7 @@ void PMergeMe::_mergeSortDeque(std::deque<int> &vbig, std::deque<int> &vsmall)
 		}
 	}
 }
-void PMergeMe::_dichotomyInsertDeque(int high, int low, unsigned int mid, unsigned int &index, std::deque<int> &vsmall)
+void PMergeMe::_dichotomyInsertDeque(int &high, int &low, unsigned int &mid, unsigned int &index, std::deque<int> &vsmall)
 {
 	while ((high - low) > 1)
 	{
@@ -409,6 +432,9 @@ void PMergeMe::_dichotomyInsertDeque(int high, int low, unsigned int mid, unsign
 		_deque.insert(_deque.begin() + mid + 2, vsmall[index]);
 	else
 		_deque.insert(_deque.begin() + mid + 1, vsmall[index]);
+	low = 0;
+	high = _deque.size() - 1;
+	mid = low + (high - low) / 2;
 }
 
 //Constructors & destructors & operator =
