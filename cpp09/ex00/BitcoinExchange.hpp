@@ -15,8 +15,6 @@ class BitcoinExchange
 	std::map<std::string, float> _data;
 
 	
-
-
 	public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange &src);

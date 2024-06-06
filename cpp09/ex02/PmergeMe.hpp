@@ -21,11 +21,7 @@ class PMergeMe
 	void checkInput(int ac, char **av);
 	void sortInput(int ac, char **av);
 	
-
 	
-
-
-
 	private:
 	std::deque<int> _deque;
 	std::vector<int> _vector;

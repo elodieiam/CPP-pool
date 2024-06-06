@@ -93,10 +93,10 @@ void PMergeMe::sortInput(int ac, char **av)
 	std::cout << static_cast<double>(tDequeEnd - tDequeStart) / CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 
 
-	if (isSortedVec())
-		std::cout << "vector is sorted !!! "<< std::endl;
-	if (isSortedDeq())
-		std::cout << "deqye is sorted !!! "<< std::endl;
+	// if (isSortedVec())
+	// 	std::cout << "vector is sorted !!! "<< std::endl;
+	// if (isSortedDeq())
+	// 	std::cout << "deque is sorted !!! "<< std::endl;
 
 }
 
