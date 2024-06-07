@@ -31,7 +31,10 @@ void BitcoinExchange::setDataBase()
 	float rate;
 	
 	if (!ifs.is_open())
+	{
+		std::cerr << "Error: ";
 		throw BitcoinExchange::ErrorOpeningFileException();
+	}
 	
 	while(std::getline(ifs, line))
 	{
@@ -53,7 +56,10 @@ void BitcoinExchange::processInput(const std::string file)
 	std::getline(ifs, line);
 
 	if (!ifs.is_open())
+	{
+		std::cerr << "Error: ";
 		throw BitcoinExchange::ErrorOpeningFileException();
+	}
 	if (line != "date | value")
 		throw BitcoinExchange::BadInputException();
 	while(std::getline(ifs, line))
