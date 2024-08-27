@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:15:41 by elrichar          #+#    #+#             */
-/*   Updated: 2024/04/16 20:19:13 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:56:43 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,15 +146,9 @@ void	Contact::display_specific(void)
 
 void	Contact::display_contact(void)
 {
-	std::string	index("");
-	
-	std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
-	std::cout << "│   INDEX  │FIRST NAME│ LAST NAME│ NICKNAME │" << std::endl;
-	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 	std::cout << "|         " << this->index;
 	trunc_display(this->first_name);
 	trunc_display(this->last_name);
 	trunc_display(this->nickname);
 	std::cout << "│" << std::endl;
-	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 }

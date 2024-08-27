@@ -6,7 +6,7 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:47:55 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/06 13:01:59 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:27:21 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_searched(std::string str)
 	return (1);
 }
 
-void	PhoneBook::display_contact(int	index, int nb_contacts)
+void	PhoneBook::display_contact(int nb_contacts)
 {
 	std::string	str("");
 	
@@ -46,7 +46,15 @@ void	PhoneBook::display_contact(int	index, int nb_contacts)
 		std::cout << "no contact yet ! PhoneBook is empty !" << std::endl;
 		return ;
 	}
-	this->Repertoire[index].display_contact();
+	
+	std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
+	std::cout << "│   INDEX  │FIRST NAME│ LAST NAME│ NICKNAME │" << std::endl;
+	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
+	for (int i = 0; i < nb_contacts ; i++)
+	{
+		this->Repertoire[i].display_contact();
+	}
+	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 	while (str.empty() || check_searched(str))
 	{
 		std::cout << "Enter the index of the contact to be displayed (0 to 7): " << std::endl << ">";

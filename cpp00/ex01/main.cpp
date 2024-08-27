@@ -6,15 +6,21 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:00:16 by elrichar          #+#    #+#             */
-/*   Updated: 2024/03/06 13:01:44 by elrichar         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:29:27 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int	main(void)
+int	main(int ac, char **av)
 {
+	(void)av;
+	if (ac != 1)
+	{
+		std::cerr << "Wrong number of arguments !" << std::endl;
+		return 1;
+	}
 	PhoneBook	PhoneBook;
 	std::string	cmd_line("");
 	int			i = 0, nb_contacts = 0;
@@ -30,7 +36,7 @@ int	main(void)
 		if (!cmd_line.compare("EXIT"))
 			break ;
 		else if (!cmd_line.compare("SEARCH"))
-				PhoneBook.display_contact(i - 1, nb_contacts);
+				PhoneBook.display_contact(nb_contacts);
 		else if (!cmd_line.compare("ADD"))
 		{
 			if (i == 8)
